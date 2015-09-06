@@ -1,0 +1,319 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>GradRanker</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    
+    <script type="text/javascript" src="{{url_for('static', filename='js/controllers.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/script.js')}}"></script>
+    
+    <link href="http://kirmani.io/wp-content/themes/mytheme/style.css" rel="stylesheet" type="text/css" />
+    <!--<link href="http://kirmani.io/wp-content/themes/mytheme/css/960.min.css" rel="stylesheet" type="text/css" />-->
+    <link href="http://kirmani.io/wp-content/themes/mytheme/css/typography.css" rel="stylesheet" type="text/css" />
+          
+     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+        ga('create', 'UA-58448322-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+    
+</head>
+{% raw %}
+<body ng-app="app" ng-controller="FormCtrl">
+    <div class="story-menu" style="z-index:999">
+        <div id="logo2">
+            <svg class="menu-icon" width="23" height="15" viewport="0 0 23 15" version="1.1" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="23" height="3"></rect><rect x="0" y="6" width="23" height="3"></rect><rect x="0" y="12" width="23" height="3"></rect></svg>
+        </div>
+        <div class="speech-bubble">
+            <div class="menu-navbar-container">
+                <ul id="menu-navbar" class="menu">
+                    <li id="menu-item-513" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-198 current_page_item menu-item-513"><a href="http://kirmani.io/">Home</a></li>
+                    <li id="menu-item-1288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1288"><a href="http://kirmani.io/about/">About</a></li>
+                    <li id="menu-item-1004" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1004"><a href="http://kirmani.io/resume/">Résumé</a></li>
+                    <li id="menu-item-1323" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1323"><a href="http://kirmani.io/blog/">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+        <script>
+        $( "#logo2" ).click(function() {
+            $( ".speech-bubble" ).toggleClass("active");
+        });
+        </script>
+    </div>
+    <div id="viewer" ng-class="{blur: submitting}" ng-click="submitting = false">
+        <header>
+            <h1>Applying for a {{profile.program.display}} at {{profile.school.display_name}} {{profile.field.display_name}}</h1>
+        </header>
+        <div class="container">
+            <form ng-submit="parse()" class="card">
+                <div id="school-picker">
+                    <h3>Pick a University: </h3>
+                    <select ng-model="profile.school" ng-value="{{profile.school}}" ng-options="school as school.display_name for (id, school) in schools | orderBy: 'display_name'" ng-change="parse()">
+                    </select>
+                </div>
+                <div id="field-picker">
+                    <h3>What field? </h3>
+                    <select ng-model="profile.field" ng-value="{{profile.field}}" ng-options="fields[field] as fields[field].display_name for field in profile.school.fields | orderBy: 'display_name'" ng-change="parse()">
+                    </select>
+                </div>
+                <div id="program-picker">
+                    <h3>What are you applying for?</h3>
+                    <select ng-model="profile.program" ng-value="{{profile.program}}" ng-options="program as program.display for program in programs" ng-change="parse()">
+                    </select>
+                </div>
+                <div id="prediction-picker" ng-if="hasPrediction">
+                    <h3>Try and predict missing scores?</h3> <h6>(This tends to take more processing time and may not always work well)</h6>
+                    <input type="checkbox" ng-model="predict" ng-change="parse()" />
+                </div>
+                <div id="american-only-picker">
+                    <h3>Compare against only Americans?</h3>
+                    <input type="checkbox" ng-model="americanOnly" ng-change="parse()" />
+                </div>
+                <div id="national-status" ng-if="!americanOnly">
+                    <h3>What is your national status?</h3>
+                    <select ng-model="profile.status" ng-value="{{profile.status}}"  ng-options="status as status.display for status in statuses" ng-change="parse()" />
+                    </select>
+                </div>
+                <button type="button" class="button buttonBlue" ng-click="parse()" >See Results!
+                    <div class="ripples buttonRipples">
+                        <span class="ripplesCircle"></span>
+                    </div>
+                </button>
+            </form>
+            <form ng-submit="test()" ng-if="parsed" class="card">               
+                <div id="scores-form">
+                    <div class="group score">
+                        <input type="number" ng-model="profile.gre_verbal" ng-value="{{profile.gre_verbal}}" value="{{profile.gre_verbal}}" ng-change="test()" step="1" min="130" max="170" ng-class="{used: profile.gre_verbal >= 0}">
+                        <span class="label-highlight"></span><span class="bar"></span>
+                        <label>GRE Verbal</label>
+                    </div>
+                    <div class="group score">
+                        <input type="number" ng-model="profile.gre_quant" ng-value="{{profile.gre_quant}}" value="{{profile.gre_quant}}" ng-change="test()" step="1" min="130" max="170" ng-class="{used: profile.gre_quant >= 0}"/>
+                        <span class="label-highlight"></span><span class="bar"></span>
+                        <label>GRE Quant</label>
+                    </div>
+                    <div class="group score">
+                        <input type="number" ng-model="profile.gre_writing" ng-value="{{profile.gre_writing}}" value="{{profile.gre_writing}}" ng-change="test()" step="0.5" min="0.0" max="6.0" ng-class="{used: profile.gre_writing >= 0}" />
+                         <span class="label-highlight"></span><span class="bar"></span>
+                        <label>GRE Writing</label>
+                    </div>
+                    <div class="group score">
+                        <input type="number" ng-model="profile.gpa" ng-value="{{profile.gpa}}" value="{{profile.gpa}}" ng-change="test()" step="0.01" min="0.0" max="4.0" ng-class="{used: profile.gpa >= 0}"/>
+                         <span class="label-highlight"></span><span class="bar"></span>
+                        <label>GPA</label>
+                    </div>
+                </div>
+            </form>
+            <div id="results" ng-if="parsed" class="card">
+                <h2>General Statistics</h2>
+                <p><strong>Predicted Admit Chance: {{admit * 100 | number: 0}}%</strong></p>
+                <p>Your GradRank: {{score}}</p>
+                <br />
+                <p>Total Number of Applicants: {{numApplied}}</p>
+                <p>Number Accepted: {{numAccepted}}</p>
+                <p>Numbed Denied: {{numDenied}}</p>
+                <p>Acceptance Rate: {{acceptanceRate * 100}}%</p>
+                <h2>Average Scores</h2>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>Application</th>
+                            <th>Accepted</th>
+                        </tr>
+                        <tr>
+                            <td>GRE Verbal</td>
+                            <td>{{avg_application_gre_verbal}}</td>
+                            <td>{{avg_accepted_gre_verbal}}</td>
+                        </tr>
+                        <tr>
+                            <td>GRE Quant</td>
+                            <td>{{avg_application_gre_quant}}</td>
+                            <td>{{avg_accepted_gre_quant}}</td>
+                        </tr>
+                        <tr>
+                            <td>GRE Writing</td>
+                            <td>{{avg_application_gre_writing}}</td>
+                            <td>{{avg_accepted_gre_writing}}</td>
+                        </tr>
+                        <tr>
+                            <td>GPA</td>
+                            <td>{{avg_application_gpa}}</td>
+                            <td>{{avg_accepted_gpa}}</td>
+                        </tr>
+                    </table>
+                <div id="tests">
+                    <h2>Training Data</h2>
+                    <table>
+                        <tr>
+                            <th ng-repeat="input in inputs">{{input.display}}</th>
+                            <th ng-repeat="output in outputs">{{output.display}}</id>
+                            <th>Decision</th>
+                        </tr>
+                        <tr ng-repeat="test in sorted_tests" ng-class="{'accepted': test.expected[0] == 1, 'rejected': test.expected[0] == 0}">
+                            <td ng-repeat="inp in test.inputs track by $index">{{test.inputs[$index]}}</td>
+                            <!--<td>{{test.inputs[1]}}</td>
+                            <td>{{test.inputs[2] | number : 5}}</td>
+                            <td>{{test.inputs[4] | number : 5}}</td>
+                            <td>{{test.inputs[3] | number : 5}}</td>
+                            <td>{{test.inputs[5] | number : 5}}</td>-->
+                            <td ng-repeat="out in test.outputs track by $index">{{test.outputs[$index]}}</td>
+                            <td>{{test.expected[0]}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="add-button" ng-click="submitting = !submitting"><img  {% endraw %} src="{{url_for('static', filename='img/add.png')}}" {% raw %} ng-class="{submitting: submitting}"/></div>
+    <div id="submitter"  ng-class="{submitting: submitting}">
+        <form id="submitter-form" ng-submit="submit()">
+            <h2>Submit your results!</h2>
+            <div id="application-picker" ng-repeat="i in range(number_of_schools_submitting) track by $index">
+                <img class="remove-school" {% endraw %} src="{{url_for('static', filename='img/add_grey.png')}}" {% raw %} ng-click="removeSchool($index)" />
+                <div id="school-picker">
+                    <h3>Where did you get in? </h3><br />
+                    <select ng-model="submission.applications[$index].school" ng-value="{{submission.applications[$index].school}}" ng-options="school.id as school.display_name for (id, school) in schools | orderBy: 'display_name'" required>
+                        <option value="">Select School!</option>
+                    </select>
+                </div>
+                <div id="field-picker">
+                    <h3>What field? </h3><br />
+                    <select ng-model="submission.applications[$index].field" ng-value="{{submission.applications[$index].field}}" ng-options="field.id as field.display_name for (id, field) in fields | orderBy: 'display_name'" required>
+                        <option value="">Select Field!</option>
+                    </select>
+                </div>
+                <div id="program-picker">
+                    <h3>What degree did you apply for?</h3><br />
+                    <select ng-model="submission.applications[$index].ms_phd" ng-value="{{submission.applications[$index].ms_phd}}" ng-options="program.num as program.display for program in programs" required>
+                        <option value="">Select Program!</option>
+                    </select>
+                </div>
+                <div id="decision-picker">
+                    <h3>Were you admitted or denied?</h3><br />
+                    <select ng-model="submission.applications[$index].decision" ng-value="{{submission.applications[$index].decision}}" ng-options="decision.value as decision.display for decision in decisions" required>
+                        <option value="">Select Decision!</option>
+                    </select>
+                </div>
+                <hr />
+            </div>
+            <button type="button" class="button buttonBlue" ng-click="number_of_schools_submitting = number_of_schools_submitting + 1">Add another school!
+                <div class="ripples buttonRipples">
+                    <span class="ripplesCircle"></span>
+                </div>
+            </button>
+            <h2>Recommendations!</h2>
+            <div id="rec-picker" ng-repeat="i in range(number_of_recs_submitting) track by $index">
+                <img class="remove-school" {% endraw %} src="{{url_for('static', filename='img/add_grey.png')}}" {% raw %} ng-click="removeSchool($index)" />
+                <div id="recs-picker">
+                    <h3>Recommender is a </h3><br />
+                    <select ng-model="submission.recs[$index].from" ng-value="{{submission.recs[$index].from}}" ng-options="rec.value as rec.display for (id, rec) in recs_from" required>
+                        <option value="">--- ----------</option>
+                    </select>
+                </div>
+                <div id="recs-observing-picker">
+                    <h3>observing you as a </h3><br />
+                    <select ng-model="submission.recs[$index].observing" ng-value="{{submission.recs[$index].observing}}" ng-options="rec.value as rec.display for (id, rec) in recs_observing" required>
+                        <option value="">--- ----------</option>
+                    </select>
+                </div>
+                <div id="recs-describing-picker">
+                    <h3>describing you as a </h3><br />
+                    <select ng-model="submission.recs[$index].describing" ng-value="{{submission.recs[$index].describing}}" ng-options="rec.value as rec.display for (id, rec) in recs_describing" required>
+                        <option value="">--- ----------</option>
+                    </select>
+                </div>
+                <hr />
+            </div>
+            <button type="button" class="button buttonBlue" ng-click="number_of_recs_submitting = number_of_recs_submitting + 1">Add another recommendation!!
+                <div class="ripples buttonRipples">
+                    <span class="ripplesCircle"></span>
+                </div>
+            </button>
+            <div id="sop-picker">
+                <h3>Statement of Purpose</h3><br />
+                <select ng-model="submission.sop" ng-value="{{submission.sop}}" ng-options="sop.value as sop.display for (id, sop) in sop" required>
+                    <option value="">--- ----------</option>
+                </select>
+            </div>
+            <div class="group score">
+                <input type="number" ng-model="submission.gre_verbal" ng-value="{{submission.gre_verbal}}" value="{{submission.gre_verbal}}" step="1" min="130" max="170" ng-class="{used: submission.gre_verbal >= 0}" required />
+                <span class="label-highlight"></span><span class="bar"></span>
+                <label>GRE Verbal</label>
+            </div>
+            <div class="group score">
+                <input type="number" ng-model="submission.gre_quant" ng-value="{{submission.gre_quant}}" value="{{submission.gre_quant}}" step="1" min="130" max="170" ng-class="{used: submission.gre_quant >= 0}" required />
+                <span class="label-highlight"></span><span class="bar"></span>
+                <label>GRE Quant</label>
+            </div>
+            <div class="group score">
+                <input type="number" ng-model="submission.gre_writing" ng-value="{{submission.gre_writing}}" value="{{submission.gre_writing}}" step="0.5" min="0.0" max="6.0" ng-class="{used: submission.gre_writing >= 0}" required />
+                 <span class="label-highlight"></span><span class="bar"></span>
+                <label>GRE Writing</label>
+            </div>
+            <div class="group score">
+                <input type="number" ng-model="submission.gpa" ng-value="{{submission.gpa}}" value="{{submission.gpa}}" step="0.01" min="0.0" max="4.0" ng-class="{used: submission.gpa >= 0}" required />
+                 <span class="label-highlight"></span><span class="bar"></span>
+                <label>GPA</label>
+            </div>
+            <div id="national-status">
+                <h3>What is your national status?</h3><br />
+                <select ng-model="submission.status" ng-value="{{submission.status}}"  ng-options="status.value as status.display for status in statuses" required />
+                     <option value="">Select Status</option>
+                </select>
+            </div>
+            <div id="rank-picker">
+                <h3>Where does your undergrad institution rank in your field?</h3><br />
+                <select ng-model="submission.rank" ng-value="{{submission.rank}}" ng-options="rank.value as rank.display for rank in ranks" required>
+                    <option value="">Select Rank</option>
+                </select>
+            </div>
+            <div id="major-picker">
+                 <h3>What was your undergrad major?</h3><br />
+                <select ng-model="submission.major" ng-value="{{submission.major}}" ng-options="major.value as major.display for (id, major) in majors">
+                    <option value="">Select Major</option>
+                </select>
+            </div>
+            <div class="group">
+                <h3>How many months have you worked in a relevant internship?</h3><br />
+                <input type="number" ng-model="submission.internships" ng-value="{{submission.internships}}" value="{{submission.internships}}" step="1" min="0.0" ng-class="{used: submission.internships >= 0}" required />
+                 <span class="label-highlight"></span><span class="bar"></span>
+            </div>
+            <div class="group">
+                <h3>How many months have you been doing research?</h3><br />
+                <input type="number" ng-model="submission.research" ng-value="{{submission.research}}" value="{{submission.research}}" step="1" min="0" ng-class="{used: submission.research >= 0}" required />
+                 <span class="label-highlight"></span><span class="bar"></span>
+            </div>
+            <div id="reu-picker">
+                <h3>Did you do any REUs?</h3>
+                <input type="checkbox" ng-model="submission.reu" />
+            </div>
+            <br />
+            <div id="publications-picker">
+                <h3>Do you have any publications?</h3>
+                <input type="checkbox" ng-model="submission.publications" />
+            </div>
+            <br />
+            <div id="publications-picker">
+                <h3>Anything else?</h3>
+                <textarea ng-model="submission.comments"> </textarea>
+            </div>
+            <br />
+            <button type="submit" class="button buttonBlue">Send your results!
+                <div class="ripples buttonRipples">
+                    <span class="ripplesCircle"></span>
+                </div>
+            </button>
+        </form>
+    </div>
+</body>
+{% endraw %}
+</html>

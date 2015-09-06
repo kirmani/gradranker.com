@@ -1,0 +1,31 @@
+[
+    {
+        "status": 1, 
+        "major": 1, 
+        "gre_quant": 170, 
+        "gre_writing": 6, 
+        "sop": 0.833, 
+        "gre_verbal": 170, 
+        "rank": 1, 
+        "reu": true, 
+        "applications": [
+            {
+                "field": "ee", 
+                "school": "texas", 
+                "ms_phd": 0, 
+                "decision": 1
+            }
+        ], 
+        "publications": false, 
+        "gpa": 4, 
+        "recs": [
+            {
+                "observing": 1, 
+                "describing": 1, 
+                "from": 1
+            }
+        ], 
+        "research": 6, 
+        "internships": 6
+    }
+]

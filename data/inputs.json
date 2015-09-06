@@ -1,0 +1,28 @@
+{   
+    "response": [
+        {
+            "id":"ms_phd",
+            "display":"Program"
+        },
+        {
+            "id":"status",
+            "display":"Nationality"
+        },
+        {
+            "id":"gre_verbal",
+            "display":"GRE Verbal"
+        }, 
+        {
+            "id":"gre_writing",
+            "display":"GRE Writing"
+        },
+        {
+            "id":"gre_quant",
+            "display":"GRE Quant"
+        },
+        {
+            "id":"gpa",
+            "display": "GPA"
+        }
+    ]
+}

@@ -1,0 +1,140 @@
+body {
+	height: 100%;
+	border: none;
+	background-color: #ececec;
+}
+header {
+	position: relative;
+	text-align: center;
+	height: 70px;
+	background: #ee6e73;
+}
+header h1 {
+	font-size: 30px;
+	color: #fff;
+	font-weight: bold;
+	padding-top: 10px;
+}
+
+.container {
+	width: 1000px;	
+}
+
+.card {
+	box-sizing: border-box;
+ 	box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26);
+  	margin: 8px;
+  	padding: 16px;
+  	border-radius: 2px;
+	background: #fafafa;
+	width: 100%;
+}
+
+h3 {
+	display: inline-block;
+}
+
+select {
+	margin-left: 5px;
+}
+
+.accepted {
+	background: #C8E6C9;
+}
+
+.rejected {
+	background: #FFCDD2;
+}
+.score {
+	width: 20%;
+	display: inline-block;
+	margin: 0 2%;
+}
+
+.remove-school {
+	transform: rotate(45deg);
+	width: 32px;
+	float: right;
+}
+.remove-school:hover {
+	opacity: 0.6;
+	cursor: pointer;	
+}
+
+.group { 
+	position: relative; 
+	margin-bottom: 45px; 
+	margin-top: 15px;
+}
+
+
+h1,h2,h3,h4,h5,h6,p,ul,table,label {
+	font-family: 'HelveticaNeue-Light', Arial, Helvetica, sans-serif;
+}
+
+form {
+	width: 640px;
+	margin: 4em auto;
+	padding: 3em 2em 2em 2em;
+	background: #fafafa;
+	border: 1px solid #ebebeb;
+	box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+}
+
+#submitter {
+	position: fixed;
+	width: 706px;;
+	top: 10%;
+	left:-webkit-calc( 50% - 353px );
+	max-height: 80%;
+	overflow:scroll;
+	box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26);
+	z-index: 999;
+	visibility:hidden; 
+	transform: scale(0.01); 
+	transition: 0.5s all ease-in-out;    
+}
+
+#submitter.submitting {
+	visibility:visible;
+	opacity: 1;
+	transform: scale(1); 
+}
+#submitter form {
+	margin-top: 0;
+ 	margin-bottom: 0;
+}
+#viewer {
+	transition: 0.75s all ease-in-out;  
+	height: 100%;  
+}
+.blur {
+	-webkit-filter: blur(10px); 
+}
+
+#add-button {
+	width: 56px;
+	height: 56px;
+	background-color: #db4437;
+	position: fixed;
+	right: 23px;
+	bottom: 23px;
+	border-radius: 50%;
+	box-shadow:0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+}
+
+#add-button img {
+	width: 36px;
+  	left: 10px;
+  	top: 10px;
+  	position: absolute;
+	transition: 0.75s all ease-in-out;
+	cursor: pointer;
+}
+
+#add-button img.submitting {
+	-ms-transform: rotate(405deg); /* IE 9 */
+    -webkit-transform: rotate(405deg); /* Chrome, Safari, Opera */
+    transform: rotate(405deg);
+}
+

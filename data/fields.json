@@ -1,0 +1,126 @@
+{
+    "ee": {
+        "query": "(EECS|ECE|EE|Electrical)", 
+        "display_name": "Electrical Engineering"
+    }, 
+    "public-health": {
+        "query": "public health", 
+        "display_name": "Public Health"
+    }, 
+    "biomed": {
+        "query": "biomedical engineering", 
+        "display_name": "Biomedical Engineering"
+    }, 
+    "psych": {
+        "query": "psychology", 
+        "display_name": "Psychology"
+    }, 
+    "meche": {
+        "query": "mech*", 
+        "display_name": "Mechanical Engineering"
+    }, 
+    "edu": {
+        "query": "education", 
+        "display_name": "Education"
+    }, 
+    "cs": {
+        "query": "computer science", 
+        "display_name": "Computer Science"
+    }, 
+    "accounting": {
+        "query": "accounting", 
+        "display_name": "Accounting"
+    }, 
+    "statistics": {
+        "query": "statistics", 
+        "display_name": "Statistics"
+    }, 
+    "business": {
+        "query": "business", 
+        "display_name": "Business"
+    }, 
+    "anthro": {
+        "query": "aero*", 
+        "display_name": "Anthropology"
+    }, 
+    "political": {
+        "query": "political", 
+        "display_name": "Political Science"
+    }, 
+    "civil": {
+        "query": "civil", 
+        "display_name": "Civil Engineering"
+    }, 
+    "music": {
+        "query": "music", 
+        "display_name": "Music"
+    }, 
+    "math": {
+        "query": "math", 
+        "display_name": "Math"
+    }, 
+    "biology": {
+        "query": "biology", 
+        "display_name": "Biology"
+    }, 
+    "theatre": {
+        "query": "theatre", 
+        "display_name": "Theatre"
+    }, 
+    "econ": {
+        "query": "economics", 
+        "display_name": "Economics"
+    }, 
+    "comm": {
+        "query": "comm", 
+        "display_name": "Communications"
+    }, 
+    "aerospace": {
+        "query": "aero*", 
+        "display_name": "Aerospace Engineering"
+    }, 
+    "astronomy": {
+        "query": "astronomy", 
+        "display_name": "Astronomy"
+    }, 
+    "neuro": {
+        "query": "neuroscience", 
+        "display_name": "Neuroscience"
+    }, 
+    "public-policy": {
+        "query": "public ad", 
+        "display_name": "Public Policy/Affairs/Administration"
+    }, 
+    "phil": {
+        "query": "philosophy", 
+        "display_name": "Philosophy"
+    }, 
+    "robot": {
+        "query": "robotics", 
+        "display_name": "Robotics"
+    }, 
+    "english": {
+        "query": "english", 
+        "display_name": "English"
+    }, 
+    "socio": {
+        "query": "sociology", 
+        "display_name": "Sociology"
+    }, 
+    "chemistry": {
+        "query": "Chemistry", 
+        "display_name": "Chemistry"
+    }, 
+    "physics": {
+        "query": "physics", 
+        "display_name": "Physics"
+    }, 
+    "cheme": {
+        "query": "chemical engineering", 
+        "display_name": "Chemical Engineering"
+    }, 
+    "history": {
+        "query": "history", 
+        "display_name": "History"
+    }
+}

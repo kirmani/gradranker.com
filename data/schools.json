@@ -1,0 +1,442 @@
+{
+    "duke": {
+        "query": "duke", 
+        "display_name": "Duke University"
+    }, 
+    "boston": {
+        "query": "Boston University", 
+        "display_name": "Boston University"
+    }, 
+    "washington": {
+        "query": "University Of Washington", 
+        "display_name": "University of Washington"
+    }, 
+    "hopkins": {
+        "query": "Johns%20Hopkins", 
+        "display_name": "Johns Hopkins University"
+    }, 
+    "wisconsin": {
+        "query": "wisconsin madison", 
+        "display_name": "University of Wisconsin, Madison"
+    }, 
+    "usc": {
+        "query": "University of Southern California", 
+        "display_name": "University of Southern California"
+    }, 
+    "cornell": {
+        "query": "cornell", 
+        "display_name": "Cornell University"
+    }, 
+    "purdue": {
+        "query": "purdue", 
+        "display_name": "Purdue University"
+    }, 
+    "ucla": {
+        "query": "ucla", 
+        "display_name": "University of Calfornia, Los Angeles"
+    }, 
+    "ucsb": {
+        "query": "ucsb", 
+        "display_name": "University of Calfornia, Santa Barbara"
+    }, 
+    "ucsd": {
+        "query": "ucsd", 
+        "display_name": "University of California, San Diego"
+    }, 
+    "rice": {
+        "query": "rice", 
+        "display_name": "Rice University"
+    }, 
+    "mit": {
+        "query": "MIT", 
+        "display_name": "Massachusetts Institute of Technology"
+    }, 
+    "texas": {
+        "query": "ut austin", 
+        "display_name": "University of Texas, Austin"
+    }, 
+    "brown": {
+        "query": "brown", 
+        "display_name": "Brown University"
+    }, 
+    "columbia": {
+        "query": "columbia", 
+        "display_name": "Columbia University"
+    }, 
+    "michigan": {
+        "query": "university of michigan", 
+        "display_name": "University of Michigan, Ann Arbor"
+    }, 
+    "virginia": {
+        "query": "university of virginia", 
+        "display_name": "University of Virginia"
+    }, 
+    "harvard": {
+        "query": "harvard", 
+        "display_name": "Harvard University"
+    }, 
+    "berkeley": {
+        "query": "Berkeley", 
+        "display_name": "University of California, Berkeley"
+    }, 
+    "uiuc": {
+        "query": "uiuc", 
+        "display_name": "University of Illinois"
+    }, 
+    "georgia": {
+        "query": "georgia tech", 
+        "display_name": "Georgia Institute of Technology"
+    }, 
+    "stanford": {
+        "query": "stanford", 
+        "display_name": "Stanford University"
+    }, 
+    "upenn": {
+        "query": "University Of Pennsylvania", 
+        "display_name": "University of Pennsylvania"
+    }, 
+    "princeton": {
+        "query": "princeton", 
+        "display_name": "Princeton University"
+    }, 
+    "florida": {
+        "query": "university of florida", 
+        "display_name": "University of Florida"
+    }, 
+    "yale": {
+        "query": "yale", 
+        "display_name": "Yale University"
+    }, 
+    "cmu": {
+        "query": "Carnegie", 
+        "display_name": "Carnegie Mellon"
+    }, 
+    "caltech": {
+        "query": "Caltech", 
+        "display_name": "Caltech"
+    },
+    "uchigago": {
+        "query":"University Of Chicago",
+        "display_name": "University Of Chicago"
+    },
+    "dartmouth": {
+        "query":"dartmouth",
+        "display_name":"Dartmouth College"
+    },
+    "northwestern": {
+        "query": "northwestern",
+        "display_name": "Northwestern"
+    },
+    "washu": {
+        "query": "Washington University In St Louis",
+        "display_name": "Washington University in St. Louis"
+    },
+    "nortedame": {
+        "query":"notre",
+        "display_name": "Notre Dame"
+    },
+    "vanderbilt": {
+        "query": "vanderbilt",
+        "display_name": "Vanderbilt"
+    },
+    "emory": {
+        "query": "emory",
+        "display_name": "Emory University"
+    },
+    "georgetown": {
+        "query": "georgetown",
+        "display_name": "Georgeotwn University"
+    },
+    "virginia": {
+        "query": "University Of Virginia",
+        "display_name":"University Of Virginia"
+    }, 
+    "tufts": {
+        "query":"tufts",
+        "display_name": "Tufts University"
+    },
+    "unc_chapel_hill": {
+        "query": "chapel hill",
+        "display_name": "University of North Carolina, Chapel Hill"
+    },
+    "boston_college": {
+        "query": "boston college",
+        "display_name": "Boston College"
+    },
+    "nyu": {
+        "query": "New York University",
+        "display_name": "New York University"
+    },
+    "rochester": {
+        "query":"University of Rochester",
+        "display_name": "University of Rochester"
+    },
+    "brandeis": {
+        "query": "brandeis",
+        "display_name": "Brandeis University"
+    },
+    "ucd": {
+        "query":"davis",
+        "display_name": "University of California, Davis"
+    },
+    "boston_university": {
+        "query": "boston university",
+        "display_name": "Boston University"
+    },
+    "northeastern": {
+        "query": "northeastern",
+        "display_name": "Northeastern"
+    },
+    "rensselaer": {
+        "query": "Rensselaer",
+        "display_name": "Rensselaer Polytechnic Institute"
+    },
+    "uci": {
+        "query": "irvine",
+        "display_name": "University of California, Irvine"
+    },
+    "penn_state": {
+        "query": "penn state",
+        "display_name": "Pennsylvania State University, University Park"
+    },
+    "umiami": {
+        "query": "university of miami",
+        "display_name": "University of Miami"
+    },
+    "gwu": {
+        "query": "George Washington University",
+        "display_name": "George Washington University"
+    },
+    "ohio_state": {
+        "query": "ohio state",
+        "display_name": "Ohio State University, Colombus"
+    },
+    "tulane": {
+        "query": "tulane",
+        "display_name": "Tulane University"
+    } ,
+    "fordham": {
+        "query": "fordham",
+        "display_name": "Fordham University"
+    },
+    "smu": {
+        "query": "Southern Methodist University",
+        "display_name": "Southern Methodist University"
+    },
+    "syracuse": {
+        "query": "syracuse",
+        "display_name": "Syracuse University"
+    },
+    "connecticut": {
+        "query": "University of Connecticut",
+        "display_name": "University of Connecticut"
+    },
+    "byu": {
+        "query": "Brigham Young",
+        "display_name": "Brigham Young University, Provo"
+    },
+    "clemson": {
+        "query": "clemson",
+        "display_name": "Clemson University"
+    },
+    "georgia": {
+        "query": "University of Georgia",
+        "display_name": "University of Georgia"
+    },
+    "maryland": {
+        "query": "University of Maryland",
+        "display_name": "University of Maryland"
+    },
+    "pittsburgh": {
+        "query": "University of Pittsburgh",
+        "display_name": "University of Pittsburgh"
+    },
+    "texas_am": {
+        "query": "\"Texas A&M\"",
+        "display_name": "Texas A&M University, College Station"
+    },
+    "worcester": {
+        "query": "Worcester",
+        "display_name": "Worcester Polytechnic Institute"
+    },
+    "rutgers": {
+        "query": "rutgers",
+        "display_name": "Rutgers Univeristy"
+    },
+    "american": {
+        "query": "\"American University\"",
+        "display_name": "American University"
+    },
+    "baylor": {
+        "query": "baylor",
+        "display_name": "Baylor University"
+    },
+    "iowa": {
+        "query": "university of iowa",
+        "display_name": "University of Iowa"
+    },
+    "minnesota": {
+        "query": "University of Minnesota",
+        "display_name": "University of Minnesota, Twin Cities"
+    },
+    "virginia_tech": {
+        "query": "virginia tech",
+        "display_name": "Virginia Tech"
+    },
+    "clark": {
+        "query": "clark",
+        "display_name": "Clark University"
+    },
+    "indianau": {
+        "query": "indiana university",
+        "display_name": "Indiana University, Bloomington"
+    },
+    "marquette": {
+        "query": "marquette",
+        "display_name": "Marquette University"
+    },
+    "miamuu": {
+        "query": "\"miami university\"",
+        "display_name": "Miami University"
+    },
+    "delaware": {
+        "query": "University of Delaware",
+        "display_name": "University of Delaware"
+    },
+    "amherst": {
+        "query": "amherst",
+        "display_name": "University of Massachusetts, Amherst"
+    },
+    "msu": {
+        "query": "michigan state",
+        "display_name": "Michigan State University"
+    },
+    "ucsc": {
+        "query": "santa cruz",
+        "display_name": "University of California, Santa Cruz"
+    },
+    "vermont": {
+        "query": "vermont",
+        "display_name": "University of Vermont"
+    },
+    "binghamton": {
+        "query": "binghamton",
+        "display_name": "Binghamton University, SUNY"
+    },
+    "colorado_mines": {
+        "query": "colorado mines",
+        "display_name": "Colorado School of Mines"
+    },
+    "stony_brook": {
+        "query": "stony brook",
+        "display_name": "Stony Brook University, SUNY"
+    },
+    "alabama": {
+        "query": "University Of Alabama",
+        "display_name": "University Of Alabama"
+    },
+    "boulder": {
+        "query": "boulder",
+        "display_name": "University of Colorado, Boulder"
+    },
+    "denver": {
+        "query": "denver",
+        "display_name": "University of Denver"
+    },
+    "tulsa": {
+        "query": "tulsa",
+        "display_name": "University of Tulsa"
+    },
+    "drexel": {
+        "query": "drexel",
+        "display_name": "Drexel University"
+    },
+    "fsu": {
+        "query": "florida state",
+        "display_name": "Florida State University"
+    },
+    "raleigh": {
+        "query": "raleigh",
+        "display_name": "North Carolina State University, Raleigh"
+    },
+    "usd": {
+        "query": "\"university of san diego\"",
+        "display_name": "University of San Diego"
+    },
+    "saint_louis": {
+        "query": "\"saint louis university\"",
+        "display_name": "Saint Louis University"
+    },
+    "missouri": {
+        "query": "University of Missouri",
+        "display_name" :"University of Missouri"
+    },
+    "lincoln": {
+        "query": "lincoln",
+        "display_name": "University of Nebraska, Lincoln"
+    },
+    "new_hampshire": {
+        "query": "new hampshire",
+        "display_name": "University of New Hampshire"
+    },
+    "auburn": {
+        "query": "auburn",
+        "display_name": "Auburn University"
+    },
+    "buffalo": {
+        "query": "buffalo suny",
+        "display_name": "University of Buffalo, SUNY"
+    },
+    "dayton": {
+        "query": "dayton",
+        "display_name": "University of Dayton"
+    },
+    "iowa_state": {
+        "query": "iowa state",
+        "display_name": "Iowa State University"
+    },
+    "loyola_chicago": {
+        "query": "loyola chicago",
+        "display_name": "Loyola University Chicago"
+    },
+    "kansas": {
+        "query": "university of kansas",
+        "display_name": "University of Kansas"
+    },
+    "oklahoma": {
+        "query": "university of oklahoma",
+        "display_name": "University of Oklahoma"
+    },
+    "oregon": {
+        "query": "university of oregon",
+        "display_name": "University of Oregon"
+    },
+    "usf": {
+        "query": "\"university of san francisco\"",
+        "display_name": "University of San Francisco"
+    },
+    "tennessee": {
+        "query": "university of tennessee",
+        "display_name": "University of Tennessee"
+    },
+    "ucr": {
+        "query": "riverside",
+        "display_name": "University of California, Riverside"
+    },
+    "south-carolina": {
+        "query": "south carolina",
+        "display_name": "University of South Carolina"
+    },
+    "iit": {
+        "query": "Illinois Technology",
+        "display_name": "Illinois Institute of Technology"
+    },
+    "csu": {
+        "query": "colorado state",
+        "display_name": "Colorado State University"
+    },
+    "arizona": {
+        "query": "university arizona",
+        "display_name": "University of Arizona"
+    }
+}
